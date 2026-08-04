@@ -19,15 +19,14 @@ function action(path,file){
 	run("Enhance Contrast", "saturated=0.35");
 	run("Red");
 	Stack.setChannel(3);
-	//run("Enhance Contrast", "saturated=0.35");
-	//run("Yellow");
-	//Stack.setChannel(4);
-	run("Grays");
 	run("Enhance Contrast", "saturated=0.35");
-	resetMinAndMax();
+	run("Green");
 	Stack.setChannel(4);
 	run("Enhance Contrast", "saturated=0.35");
 	run("Blue");
+	
+	Property.set("CompositeProjection", "Sum");
+	Stack.setDisplayMode("composite");
 	saveAs("tiff", path + file);
 	run("Close All");
 }
